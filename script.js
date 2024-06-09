@@ -1,6 +1,5 @@
-const body = document.querySelector('body')
+const body = document.querySelector("body");
 
-window.addEventListener('load', () => {
-    body.classList.add("bodyShown")
-})
-
+window.addEventListener("load", () => {
+  body.classList.add("bodyShown");
+});
