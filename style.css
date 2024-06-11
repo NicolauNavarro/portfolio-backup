@@ -53,6 +53,8 @@
 }
 h1 {
   font-size: 2.986rem;
+  text-transform: uppercase;
+  font-weight: bolder;
 }
 h2 {
   font-size: 2.488rem;
@@ -90,32 +92,70 @@ a {
   display: flex;
   gap: 20px;
 }
+.rrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.rcol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 html {
   scroll-behavior: smooth;
 }
-body,
-.bo {
+body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
   min-height: 100vh;
   width: 100vw;
-  background-color: var(--background);
   overflow-x: hidden;
+  background-color: var(--background);
   color: var(--white);
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-  justify-content: flex-start;
-  gap: 0px;
   transition: 0.2s ease;
-  opacity: 0;
-  height: 100vh;
-  overflow-y: hidden;
+  scroll-behavior: smooth;
 }
-.bodyShown {
-  opacity: 1;
-  height: fit-content;
-  overflow-y: unset;
+/*=================== Nav Bar ===================*/
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 400px;
+  height: 60px;
+  position: fixed;
+  bottom: 40px;
+  background-color: #ffffff09;
+  color: var(--gray);
+  font-weight: 600;
+  border-radius: 15px;
+  padding: 0px 30px;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  animation: --moveUpNav ease-in-out forwards;
+  animation-timeline: scroll();
+  animation-range: 70px 100vh;
 }
+@keyframes --moveUpNav {
+  from {
+    bottom: 40px;
+  }
+  to {
+    bottom: calc(100vh - 80px);
+  }
+}
+.nav p {
+  cursor: pointer;
+}
+/*=================== Hero section ===================*/
 .hero {
   width: 100vw;
   height: 100vh;
@@ -123,22 +163,15 @@ body,
   gap: 40px;
   position: sticky;
   top: 0;
-  animation: --dissapearmain ease forwards;
+  animation: --dissapearHero ease forwards;
   animation-timeline: scroll();
   animation-range: 150vh 200vh;
   opacity: 1;
 }
-@keyframes --dissapearmain {
+@keyframes --dissapearHero {
   to {
     opacity: 0;
   }
-}
-.hero .col {
-  gap: 0px;
-}
-.hero h1 {
-  font-weight: bolder;
-  text-transform: uppercase;
 }
 .hero h3 {
   color: var(--gray);
@@ -155,29 +188,6 @@ body,
   border-bottom: 4px solid var(--white);
   border-radius: 2px;
 }
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 400px;
-  height: 60px;
-  position: fixed;
-  bottom: 40px;
-  background-color: #ffffff09;
-  color: var(--gray);
-  font-weight: 600;
-  border-radius: 15px;
-  padding: 0px 30px;
-  backdrop-filter: blur(10px);
-  z-index: 30;
-  animation: --goUp ease-in-out forwards;
-  animation-timeline: scroll();
-  animation-range: 70px 100vh;
-}
-.nav p {
-  cursor: pointer;
-}
-
 .circle {
   position: absolute;
   height: 50vh;
@@ -209,37 +219,37 @@ body,
   top: -25vh;
   opacity: 0.23;
 }
-
-@keyframes --goUp {
-  from {
-    bottom: 40px;
-  }
-  to {
-    bottom: calc(100vh - 80px);
-  }
-}
-
+/*=================== Sections ===================*/
 .section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
   width: 100vw;
   padding: 10vh 80px;
-  height: 100vh;
   background-color: var(--background);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 4;
-  background-color: var(--background);
+  z-index: 5;
 }
-.firstsec {
+.section h1 {
+  scale: 1.3;
+  transform-origin: top;
+}
+.section h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+/*=================== Intro ===================*/
+.intro {
   background-color: #ffffff10;
   backdrop-filter: blur(3px);
-  animation: --opacityon ease forwards;
+  animation: --introBackground ease forwards;
   animation-timeline: scroll();
   animation-range: 300px 100vh;
   border-radius: 20px 20px 0px 0px;
 }
-
-@keyframes --opacityon {
+@keyframes --introBackground {
   0% {
     background-color: #ffffff10;
     backdrop-filter: blur(2px);
@@ -254,37 +264,26 @@ body,
     border-radius: 0px 0px 0px 0px;
   }
 }
-.section h1 {
-  scale: 1.3;
-  transform-origin: left top;
-  font-weight: bolder;
-  text-transform: uppercase;
-}
-.section h2 {
-  text-transform: uppercase;
-  font-weight: 400;
-}
-.firstsec span {
+.intro span {
   color: var(--background);
   background-color: var(--white);
   padding: 0px 10px;
   border-radius: 8px;
   font-weight: 300;
 }
-
+/*=================== Scroll animated section ===================*/
 .sec2 {
-  z-index: 2;
+  height: 190vh;
+  overflow: hidden;
   padding: none;
   margin: none;
   background-color: var(--gray);
-  animation: --apear-better ease forwards;
+  animation: --scrollCards ease forwards;
   animation-timeline: view();
-  overflow: hidden;
-  height: 190vh;
-  transform-style: preserve-3d;
   margin-bottom: -40vh;
+  z-index: 2;
 }
-@keyframes --apear-better {
+@keyframes --scrollCards {
   0% {
     background-color: var(--gray);
     transform: translateY(-100vh);
@@ -298,8 +297,7 @@ body,
     transform: translateY(0vh);
   }
 }
-
-.sec2 .projects {
+.sec2 .continer {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -308,24 +306,28 @@ body,
   gap: 8px;
   transform: rotateZ(25deg);
   scale: 1.2;
-  animation: --scale-up-pro ease forwards;
+  animation: --scaleUpCards ease forwards;
   animation-timeline: scroll(root);
   animation-range: 100vh 190vh;
 }
-@keyframes --scale-up-pro {
+@keyframes --scaleUpCards {
   100% {
     scale: 1.5;
   }
 }
-.sec2 .projects .col {
+.sec2 .continer .col {
   width: 100%;
   gap: 5px;
-  animation: --goUp-Row ease forwards;
+  animation: --scrollUp ease forwards;
   animation-timeline: scroll(root);
   animation-range: 100vh 300vh;
 }
-
-.sec2 .projects .col .card {
+@keyframes --scrollUp {
+  100% {
+    transform: translateY(-50vh);
+  }
+}
+.sec2 .continer .col .card {
   width: 100%;
   height: 460px;
   background-color: var(--green);
@@ -342,50 +344,39 @@ body,
   object-fit: contain;
   object-position: center;
 }
-@keyframes --goUp-Row {
-  100% {
-    transform: translateY(-50vh);
-  }
-}
-
-.sec2 .projects .col:nth-child(1) {
+.sec2 .continer .col:nth-child(1) {
   animation-range: 90vh 800vh;
   transform: translateY(40vh);
   padding-top: 40vh;
 }
-.sec2 .projects .col:nth-child(2) {
+.sec2 .continer .col:nth-child(2) {
   animation-range: 110vh 800vh;
   transform: translateY(30vh);
   padding-top: 30vh;
 }
-.sec2 .projects .col:nth-child(3) {
+.sec2 .continer .col:nth-child(3) {
   animation-range: 70vh 800vh;
   transform: translateY(60vh);
   padding-top: 60vh;
 }
-.sec2 .projects .col:nth-child(4) {
+.sec2 .continer .col:nth-child(4) {
   animation-range: 140vh 800vh;
   transform: translateY(20vh);
   padding-top: 20vh;
 }
-.sec2 .projects .col:nth-child(5) {
+.sec2 .continer .col:nth-child(5) {
   animation-range: 160vh 800vh;
   transform: translateY(10vh);
   padding-top: 10vh;
 }
+/*=================== Selected work section ===================*/
 .sec3 {
-  animation: --goupSec3 ease forwards;
+  animation: --hideLastSection ease forwards;
   animation-timeline: view();
-  z-index: 5;
   gap: 70px;
-  justify-content: center;
-  height: fit-content;
-  min-height: 100vh;
-  padding-top: 17vh;
-  align-items: center;
-  position: relative;
+  z-index: 10;
 }
-@keyframes --goupSec3 {
+@keyframes --hideLastSection {
   0% {
     margin-top: 0px;
   }
@@ -394,6 +385,7 @@ body,
     margin-top: -20vh;
   }
 }
+/*== images ==*/
 .sec3 img {
   width: 400px;
   position: absolute;
@@ -406,7 +398,7 @@ body,
   box-shadow: 0px 0px 20px 2px #00000060;
   pointer-events: none;
 }
-#image1 {
+.sec3 #image1 {
   top: 60px;
   left: 20px;
 }
@@ -430,7 +422,6 @@ body,
   bottom: 60px;
   left: 100px;
 }
-
 .sec3 #image10 {
   top: 90px;
   left: 80px;
@@ -443,30 +434,26 @@ body,
   bottom: 300px;
   right: 100px;
 }
-
 .project:hover img {
   opacity: 1;
   scale: 1;
 }
-
+/*== Table ==*/
 .section .work-table {
   width: 100%;
-  gap: 0px;
 }
 .section .work-table:hover .project {
   opacity: 0.6;
-  transition: 0.2s ease;
 }
 .section .work-table .project {
   width: 100%;
   padding: 20px 80px;
+  color: var(--gray);
   border-top: 2px solid #d6d6d840;
-  align-items: center;
   justify-content: space-between;
   gap: 50px;
-  color: var(--gray);
-  transition: 0.2s ease;
   opacity: 0.8;
+  transition: 0.2s ease;
   cursor: pointer;
 }
 .section .work-table .project:hover {
@@ -491,13 +478,14 @@ body,
   font-weight: 400;
 }
 .sec3 h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  margin: none;
-  padding: none;
   color: var(--gray);
-  transform-origin: top;
 }
+
+.sec33 {
+  animation: none;
+}
+
+/*=================== Sills section ===================*/
 .sec4 {
   animation: --golightmode ease forwards;
   animation-timeline: view();
@@ -511,7 +499,6 @@ body,
   gap: 30px;
   height: fit-content;
   min-height: 100vh;
-  padding-bottom: 10vh;
 }
 @keyframes --golightmode {
   0% {
@@ -610,7 +597,6 @@ svg {
 .sec5 {
   gap: 20px;
 }
-
 .sec5 .box {
   width: 100%;
   height: 110px;
@@ -625,4 +611,7 @@ svg {
 }
 .sec5 h3 {
   margin-top: 10px;
+}
+.sec6 {
+  gap: 20px;
 }
