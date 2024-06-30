@@ -546,7 +546,7 @@ body {
   margin-bottom: 25px;
 }
 .setbox{
-  width: 30%;
+  width: 33%;
   transition: 0.4s ease;
   border-radius: 10px;
 }
@@ -670,4 +670,42 @@ body {
 }
 .sec6 {
   gap: 20px;
+}
+
+
+
+
+
+
+
+.sec4 span{
+  font-size: 450px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  z-index: -2;
+  transition: 0.1s ease;
+  pointer-events: none;
+  scale: 0.7;
+  font-weight: 200;
+  color: var(--background);
+  border-radius: 20px;
+}
+.sec4 span.top{
+  bottom: unset;
+  right: unset;
+  top: 10px;
+  left: 10px;
+}
+.sec4{
+  padding-top: 20vh;
+  position: relative;
+  width: 100vw;
+}
+.setbox:hover span{
+  opacity: 0.7;
+  scale: 1;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px 3px #d6d6d870;
 }
