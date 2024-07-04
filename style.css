@@ -154,6 +154,7 @@ section{
   width: 100vw;
   position: relative;
   height: 100vh;
+  padding: 60px;
 }
 .hero{
   height: 100vh;
@@ -165,13 +166,7 @@ section{
   position: absolute;
   left: -20%;
   top: 0;
-  z-index: -5;
-  animation: --move-right 0.8s 6s ease forwards;
-}
-@keyframes --move-right{
-  to{
-    transform: translateX(20%);
-  }
+  z-index: 0;
 }
 .hero h1{
   text-align: center;
@@ -179,7 +174,24 @@ section{
 .hero h3{
   text-transform: uppercase;
 }
-
+.hero .header{
+  position: absolute;
+  z-index: 2;
+  gap: 0px;
+  bottom: 0px;
+  left: 0px;
+  animation: --move-header ease forwards;
+  animation-timeline: scroll();
+  animation-range: 0vh 50vh;
+  width: 100vw;
+  padding: 60px;
+  background-color: transparent;
+}
+@keyframes --move-header{
+  to{
+    background-color: var(--main);
+  }
+}
 
 
 
