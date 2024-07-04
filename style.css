@@ -166,7 +166,7 @@ section{
   position: absolute;
   left: -20%;
   top: 0;
-  z-index: 0;
+  z-index: 3;
 }
 .hero h1{
   text-align: center;
@@ -180,14 +180,13 @@ section{
   gap: 0px;
   bottom: 0px;
   left: 0px;
-  animation: --move-header ease forwards;
+  animation: --mover-header ease forwards;
   animation-timeline: scroll();
-  animation-range: 0vh 50vh;
   width: 100vw;
   padding: 60px;
-  background-color: transparent;
+  pointer-events: none;
 }
-@keyframes --move-header{
+@keyframes --move-header {
   to{
     background-color: var(--main);
   }
