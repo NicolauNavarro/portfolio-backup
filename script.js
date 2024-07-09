@@ -19,6 +19,7 @@ requestAnimationFrame(raf)
 
 
 const content = document.querySelector(".content");
+const hero = document.querySelector(".hero");
 const loadPage = document.querySelector(".load-page");
 window.addEventListener("load", () => {
   setTimeout(() => {
@@ -26,8 +27,9 @@ window.addEventListener("load", () => {
     loadPage.style.opacity = "0";
     loadPage.addEventListener("transitionend", () => {
       loadPage.style.display = "none";
+      hero.classList.remove('beforee')
     });
-  }, 2400);
+  }, 0);
 });
 
 let darkModeState = true;
@@ -77,6 +79,8 @@ window.addEventListener('scroll', () =>{
 })
 
 
+
+
 let menuOpened = false
 
 const menu = document.querySelector('#menu');
@@ -102,6 +106,41 @@ function closeMenu(){
 
 
 
+
+
+
+
+/*=========== Btns controls =============*/
+
+
+
+const home = document.querySelector('#home')
+const myself = document.querySelector('#myself')
+const projects = document.querySelector('#projects')
+const articles = document.querySelector('#articles')
+const contact = document.querySelector('#contact')
+
+home.addEventListener('click', () => {
+  window.scroll(top)
+})
+myself.addEventListener('click', () => {
+  window.scroll(top)
+})
+projects.addEventListener('click', () => {
+  window.scroll(top)
+})
+articles.addEventListener('click', () => {
+  window.scroll(top)
+})
+contact.addEventListener('click', () => {
+  window.scrollTo()
+})
+
+const backStart = document.querySelector('#backStart')
+
+backStart.addEventListener('click', () => {
+  window.scroll(top)
+})
 
 
 
