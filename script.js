@@ -133,7 +133,7 @@ articles.addEventListener('click', () => {
   window.scroll(top)
 })
 contact.addEventListener('click', () => {
-  window.scrollTo()
+
 })
 
 const backStart = document.querySelector('#backStart')
